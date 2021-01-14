@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageType>Template</PackageType>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>content</ContentTargetFolders>
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageId>F0.Templates</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Flash0ver</Authors>
+    <Company>f[0]</Company>
+    <Product>F0.Templates</Product>
+    <Description>Template pack for the .NET Template Engine.</Description>
+    <Copyright>© f[0]</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/Flash0ver/F0.Templates</PackageProjectUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/Flash0ver/F0/master/Branding/NuGet/F0.Templates.png</PackageIconUrl>
+    <PackageIcon>Icon.png</PackageIcon>
+    <RepositoryUrl>https://github.com/Flash0ver/F0.Templates.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>f[0];f0;templates</PackageTags>
+    <PackageReleaseNotes>TODO</PackageReleaseNotes>
+    <NeutralLanguage>en</NeutralLanguage>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**" PackagePath="content\" />
+    <Compile Remove="**\*" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(Configuration)' == 'Debug'">
+    <None Include="..\..\..\resources\F0.Templates-Preview.png" Pack="true" PackagePath="Icon.png" Visible="false" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(Configuration)' == 'Release'">
+    <None Include="..\..\..\resources\F0.Templates.png" Pack="true" PackagePath="Icon.png" Visible="false" />
+  </ItemGroup>
+
+</Project>
