@@ -29,7 +29,7 @@
     <RepositoryUrl>https://github.com/Flash0ver/F0.Templates.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>f[0];f0;templates</PackageTags>
-    <PackageReleaseNotes>TODO</PackageReleaseNotes>
+    <PackageReleaseNotes>First release including Directory.Build.props, Directory.Build.targets and Directory.Packages.props item templates.</PackageReleaseNotes>
     <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
 
