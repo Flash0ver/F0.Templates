@@ -2,3 +2,4 @@
 CHANGELOG
 
 ## vNext
+- Added `Directory.Build.props` (MSBuild) item template.

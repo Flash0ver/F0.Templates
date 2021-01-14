@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Flash0ver",
+  "classifications": [
+    "Config",
+    "MSBuild"
+  ],
+  "identity": "F0.Templates.Directory.Build.props",
+  "name": "Directory.Build.props file",
+  "shortName": "directory.build.props",
+  "tags": {
+    "type": "item"
+  },
+  "description": "Creates a Directory.Build.props file."
+}

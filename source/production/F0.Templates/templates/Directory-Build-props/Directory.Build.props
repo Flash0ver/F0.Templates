@@ -1,0 +1,6 @@
+<Project>
+
+  <!--To stop MSBuild from scanning for more Directory.Build.props remove the <Import.../> line below -->
+  <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
+
+</Project>
