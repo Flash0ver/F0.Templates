@@ -2,8 +2,10 @@
 CHANGELOG
 
 ## vNext
+
+## v0.2.0 (2021-01-22)
 ### Template pack
-- Suppressed package dependencies, fixing NU5128.
+- Suppressed package dependencies, fixing NuGet Warning NU5128.
 
 ### Directory.Packages.props
 - Fixed inconsistent formatting.
