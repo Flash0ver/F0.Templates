@@ -1,0 +1,8 @@
+<Project>
+
+  <PropertyGroup>
+    <F0Version>0.1.0</F0Version>
+    <F0ReleaseNotes>First release including Directory.Build.props, Directory.Build.targets and Directory.Packages.props item templates.</F0ReleaseNotes>
+  </PropertyGroup>
+
+</Project>
