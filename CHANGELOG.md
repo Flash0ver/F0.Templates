@@ -2,6 +2,8 @@
 CHANGELOG
 
 ## vNext
+### Directory.Packages.props
+- Fixed inconsistent formatting.
 
 ## v0.1.0 (2021-01-14)
 - Added `Directory.Build.props` (MSBuild) item template.

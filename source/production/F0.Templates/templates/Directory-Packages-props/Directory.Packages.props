@@ -7,4 +7,5 @@
   <ItemGroup>
     <PackageVersion Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
   </ItemGroup>
+
 </Project>
