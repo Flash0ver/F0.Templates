@@ -2,6 +2,9 @@
 CHANGELOG
 
 ## vNext
+### Template pack
+- Suppressed package dependencies, fixing NU5128.
+
 ### Directory.Packages.props
 - Fixed inconsistent formatting.
 
