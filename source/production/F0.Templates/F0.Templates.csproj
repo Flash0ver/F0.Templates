@@ -28,7 +28,7 @@
     <PackageIcon>Icon.png</PackageIcon>
     <RepositoryUrl>https://github.com/Flash0ver/F0.Templates.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageTags>f[0];f0;templates</PackageTags>
+    <PackageTags>f[0];f0;dotnet-new;templates</PackageTags>
     <PackageReleaseNotes>$(F0ReleaseNotes)</PackageReleaseNotes>
     <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
