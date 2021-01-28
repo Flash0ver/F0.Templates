@@ -2,6 +2,8 @@
 CHANGELOG
 
 ## vNext
+
+## v0.3.0 (2021-01-28)
 ### Directory.Build.props
 - Added option `-e|--empty`.
 - Added option `-mlm|--multi-level-merge`.
