@@ -1,6 +1,15 @@
 <Project>
+<!--#if (!Empty)-->
 
-  <!--To stop MSBuild from scanning for more Directory.Build.targets remove the <Import.../> line below -->
+  <!--#if (MultiLevelMerge)-->
   <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.targets', '$(MSBuildThisFileDirectory)../'))" />
 
+  <!--#endif-->
+  <!--#if (DefineConstants || IsDefault)-->
+  <PropertyGroup Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'netstandard2.1'))">
+    <DefineConstants>$(DefineConstants);HAS_ASYNCHRONOUS_DISPOSABLE</DefineConstants>
+  </PropertyGroup>
+
+  <!--#endif-->
+<!--#endif-->
 </Project>

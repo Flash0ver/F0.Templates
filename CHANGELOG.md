@@ -7,6 +7,11 @@ CHANGELOG
 - Added option `-mlm|--multi-level-merge`.
 - Added option `-wae|--warnings-as-errors` (hidden).
 
+### Directory.Build.targets
+- Added option `-e|--empty`.
+- Added option `-mlm|--multi-level-merge`.
+- Added option `-dc|--define-constants` (hidden).
+
 ## v0.2.0 (2021-01-22)
 ### Template pack
 - Suppressed package dependencies, fixing NuGet Warning NU5128.

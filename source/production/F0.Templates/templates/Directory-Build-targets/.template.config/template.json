@@ -11,5 +11,29 @@
   "tags": {
     "type": "item"
   },
-  "description": "Creates a Directory.Build.targets file."
+  "description": "Creates a Directory.Build.targets file.",
+  "symbols": {
+    "Empty": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "description": "If specified, creates an empty file, which stops MSBuild from further scanning for more Directory.Build.targets."
+    },
+    "MultiLevelMerge": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "description": "If specified, makes MSBuild continue scanning the directory structure upward for the next Directory.Build.targets and merges it into this file."
+    },
+    "DefineConstants": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "description": "If specified, defines a conditional compilation symbol."
+    },
+    "IsDefault": {
+      "type": "computed",
+      "value": "(!(Empty || MultiLevelMerge || DefineConstants))"
+    }
+  }
 }
