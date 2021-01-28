@@ -17,3 +17,9 @@ Item, project and other templates for the .NET Template Engine.
 ## Other external links
 [Libraries.io Packages](https://libraries.io/nuget/F0.Templates)\
 [Libraries.io Repositories](https://libraries.io/github/Flash0ver/F0.Templates)
+
+## Documentation
+See [F0.Templates.md](./documentation/F0.Templates.md).
+
+## Changelog
+See [CHANGELOG.md](./CHANGELOG.md).
