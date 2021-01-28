@@ -1,0 +1,7 @@
+<Project>
+
+  <PropertyGroup Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'netstandard2.1'))">
+    <DefineConstants>$(DefineConstants);HAS_ASYNCHRONOUS_DISPOSABLE</DefineConstants>
+  </PropertyGroup>
+
+</Project>
