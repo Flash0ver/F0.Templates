@@ -11,5 +11,29 @@
   "tags": {
     "type": "item"
   },
-  "description": "Creates a Directory.Build.props file."
+  "description": "Creates a Directory.Build.props file.",
+  "symbols": {
+    "Empty": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "description": "If specified, creates an empty file, which stops MSBuild from further scanning for more Directory.Build.props."
+    },
+    "MultiLevelMerge": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "description": "If specified, makes MSBuild continue scanning the directory structure upward for the next Directory.Build.props and merges it into this file."
+    },
+    "WarningsAsErrors": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "description": "If specified, treats warnings as errors when 'Configuration' is 'Release'."
+    },
+    "IsDefault": {
+      "type": "computed",
+      "value": "(!(Empty || MultiLevelMerge || WarningsAsErrors))"
+    }
+  }
 }

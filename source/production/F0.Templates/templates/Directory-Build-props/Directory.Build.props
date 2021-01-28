@@ -1,6 +1,16 @@
 <Project>
+<!--#if (!Empty)-->
 
-  <!--To stop MSBuild from scanning for more Directory.Build.props remove the <Import.../> line below -->
+  <!--#if (MultiLevelMerge)-->
   <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
 
+  <!--#endif-->
+  <!--#if (WarningsAsErrors || IsDefault)-->
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsNotAsErrors>$(WarningsNotAsErrors);CS0618</WarningsNotAsErrors>
+  </PropertyGroup>
+
+  <!--#endif-->
+<!--#endif-->
 </Project>

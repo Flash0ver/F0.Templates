@@ -2,6 +2,10 @@
 CHANGELOG
 
 ## vNext
+### Directory.Build.props
+- Added option `-e|--empty`.
+- Added option `-mlm|--multi-level-merge`.
+- Added option `-wae|--warnings-as-errors` (hidden).
 
 ## v0.2.0 (2021-01-22)
 ### Template pack
