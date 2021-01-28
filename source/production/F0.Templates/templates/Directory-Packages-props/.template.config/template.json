@@ -11,5 +11,23 @@
   "tags": {
     "type": "item"
   },
-  "description": "Creates a Directory.Packages.props file."
+  "description": "Creates a Directory.Packages.props file.",
+  "symbols": {
+    "OptOutCentralPackageVersionManagement": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "description": "If specified, opt-out of Central Package Version Management; otherwise, opt-in explicitly."
+    },
+    "Empty": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "description": "If specified, no PackageVersion elements are defined."
+    },
+    "IsDefault": {
+      "type": "computed",
+      "value": "(!(OptOutCentralPackageVersionManagement || Empty))"
+    }
+  }
 }

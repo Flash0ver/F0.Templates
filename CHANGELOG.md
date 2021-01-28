@@ -12,6 +12,10 @@ CHANGELOG
 - Added option `-mlm|--multi-level-merge`.
 - Added option `-dc|--define-constants` (hidden).
 
+### Directory.Packages.props
+- Added option `-oo|--opt-out`.
+- Added option `-e|--empty`.
+
 ## v0.2.0 (2021-01-22)
 ### Template pack
 - Suppressed package dependencies, fixing NuGet Warning NU5128.

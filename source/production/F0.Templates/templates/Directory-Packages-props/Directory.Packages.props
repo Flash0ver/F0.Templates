@@ -1,11 +1,12 @@
 <Project>
 
   <PropertyGroup>
-    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <ManagePackageVersionsCentrally Condition="'$(OptOutCentralPackageVersionManagement)' == 'True'">false</ManagePackageVersionsCentrally>
+    <ManagePackageVersionsCentrally Condition="'$(OptOutCentralPackageVersionManagement)' != 'True'">true</ManagePackageVersionsCentrally>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="16.8.3" Condition="'$(Empty)' != 'True'" />
   </ItemGroup>
 
 </Project>
