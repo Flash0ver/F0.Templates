@@ -23,7 +23,7 @@
       "type": "parameter",
       "datatype": "bool",
       "defaultValue": "false",
-      "description": "If specified, no PackageVersion elements are defined."
+      "description": "If specified, no 'PackageVersion' elements are defined."
     },
     "IsDefault": {
       "type": "computed",

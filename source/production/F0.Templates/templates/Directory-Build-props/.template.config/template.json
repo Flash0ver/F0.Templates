@@ -29,7 +29,7 @@
       "type": "parameter",
       "datatype": "bool",
       "defaultValue": "false",
-      "description": "If specified, treats warnings as errors when 'Configuration' is 'Release'."
+      "description": "If specified, treats warnings as errors when 'Configuration' is 'Release', except for 'CS0618'."
     },
     "IsDefault": {
       "type": "computed",
