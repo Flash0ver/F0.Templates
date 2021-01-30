@@ -6,14 +6,8 @@ using System.Threading.Tasks;
 
 namespace F0.Templates.Example
 {
-	public sealed partial class Sample : IDisposable
+	public sealed partial class ConditionalSample : IDisposable
 	{
-		[Obsolete("Deprecated", false)]
-		public string Deprecated()
-		{
-			return "Deprecated";
-		}
-
 		public void Dispose()
 		{
 			throw new NotImplementedException();
@@ -21,7 +15,7 @@ namespace F0.Templates.Example
 	}
 
 #if HAS_ASYNCHRONOUS_DISPOSABLE
-	public sealed partial class Sample : IAsyncDisposable
+	public sealed partial class ConditionalSample : IAsyncDisposable
 	{
 		public ValueTask DisposeAsync()
 		{
@@ -30,11 +24,11 @@ namespace F0.Templates.Example
 	}
 #endif
 
-	public sealed partial class Sample
+	public sealed partial class ConditionalSample
 	{
 		public int Value { get; private set; }
 
-		public Sample()
+		public ConditionalSample()
 		{
 			Value = 1;
 			ConditionalIncrement();

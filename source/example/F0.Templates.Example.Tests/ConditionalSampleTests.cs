@@ -1,6 +1,5 @@
 using System;
 using FluentAssertions;
-using FluentAssertions.Primitives;
 using Xunit;
 using Xunit.Abstractions;
 #if HAS_ASYNCHRONOUS_DISPOSABLE
@@ -9,46 +8,26 @@ using System.Threading.Tasks;
 
 namespace F0.Templates.Example.Tests
 {
-	public partial class SampleTests
+	public partial class ConditionalSampleTests
 	{
-		[Fact]
-		public void Deprecated()
-		{
-			Sample sample = new ();
-
-			string text = sample.Deprecated();
-
-			text.Should().Be("Deprecated");
-
-			return;
-			return;
-		}
-
 		[Fact]
 		public void Dispose()
 		{
-			Sample sample = new ();
+			ConditionalSample sample = new();
 
 			Action act = () => sample.Dispose();
 
 			act.Should().ThrowExactly<NotImplementedException>();
 		}
-
-		[Fact]
-		public void CentralPackageVersionManagement()
-		{
-			typeof(FactAttribute).Assembly.GetName().Version.Should().Be(new Version(2, 4, 1, 0));
-			typeof(BooleanAssertions).Assembly.GetName().Version.Should().Be(new Version(5, 10, 3, 0));
-		}
 	}
 
 #if HAS_ASYNCHRONOUS_DISPOSABLE
-	public partial class SampleTests
+	public partial class ConditionalSampleTests
 	{
 		[Fact]
 		public void DisposeAsync()
 		{
-			Sample sample = new ();
+			ConditionalSample sample = new();
 
 			Func<Task> act = () => sample.DisposeAsync().AsTask();
 
@@ -57,11 +36,11 @@ namespace F0.Templates.Example.Tests
 	}
 #endif
 
-	public partial class SampleTests
+	public partial class ConditionalSampleTests
 	{
 		private readonly ITestOutputHelper output;
 
-		public SampleTests(ITestOutputHelper output)
+		public ConditionalSampleTests(ITestOutputHelper output)
 		{
 			this.output = output;
 		}
@@ -75,7 +54,7 @@ namespace F0.Templates.Example.Tests
 			int value = 1;
 #endif
 
-			Sample sample = new ();
+			ConditionalSample sample = new();
 
 			sample.Value.Should().Be(value);
 
