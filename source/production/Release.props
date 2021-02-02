@@ -1,8 +1,8 @@
 <Project>
 
   <PropertyGroup>
-    <F0Version>0.3.0</F0Version>
-    <F0ReleaseNotes>Added options to item templates: Directory.Build.props, Directory.Build.targets and Directory.Packages.props.</F0ReleaseNotes>
+    <F0Version>0.3.1</F0Version>
+    <F0ReleaseNotes>The Directory.Build.props item template includes CS0612 in the warnings that are not treated as errors.</F0ReleaseNotes>
   </PropertyGroup>
 
 </Project>

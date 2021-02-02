@@ -2,6 +2,8 @@
 CHANGELOG
 
 ## vNext
+
+## v0.3.1 (2021-02-02)
 ### Directory.Build.props
 - Fixed option `-wae|--warnings-as-errors`, additionally treating warning _CS0612_ (Type or member is obsolete) not as error.
 
