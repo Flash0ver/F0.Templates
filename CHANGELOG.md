@@ -2,12 +2,14 @@
 CHANGELOG
 
 ## vNext
+### Directory.Build.props
+- Fixed option `-wae|--warnings-as-errors`, additionally treating warning _CS0612_ (Type or member is obsolete) not as error.
 
 ## v0.3.0 (2021-01-28)
 ### Directory.Build.props
 - Added option `-e|--empty`.
 - Added option `-mlm|--multi-level-merge`.
-- Added option `-wae|--warnings-as-errors` (hidden).
+- Added option `-wae|--warnings-as-errors` (hidden), which treats all warnings as errors except for _CS0618_ (Type or member is obsolete).
 
 ### Directory.Build.targets
 - Added option `-e|--empty`.

@@ -5,7 +5,7 @@ using Xunit;
 
 namespace F0.Templates.Example.Tests
 {
-	public class PackageVersionSampleTests
+	public class PackageVersionTests
 	{
 		[Fact]
 		public void CentralPackageVersionManagement()
