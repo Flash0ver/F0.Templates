@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30717.126
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1B0583C9-C2E2-4149-8927-3C0054054799}"
 EndProject
@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "F0.Templates", "production\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{FD445803-3976-4B69-8EDB-59A701AF4E56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F0.Templates.Example", "example\F0.Templates.Example\F0.Templates.Example.csproj", "{3A837844-7505-4BC3-AA10-DEB9AC81A772}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "F0.Templates.Example", "example\F0.Templates.Example\F0.Templates.Example.csproj", "{3A837844-7505-4BC3-AA10-DEB9AC81A772}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F0.Templates.Example.Tests", "example\F0.Templates.Example.Tests\F0.Templates.Example.Tests.csproj", "{03F7434C-413B-4F83-9A88-A942238CE4FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "F0.Templates.Example.Tests", "example\F0.Templates.Example.Tests\F0.Templates.Example.Tests.csproj", "{03F7434C-413B-4F83-9A88-A942238CE4FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
