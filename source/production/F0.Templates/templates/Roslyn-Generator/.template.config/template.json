@@ -1,0 +1,208 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Flash0ver",
+  "classifications": [
+    "Roslyn",
+    "Generator"
+  ],
+  "identity": "F0.Templates.Roslyn.Generator",
+  "name": "Roslyn Generator solution",
+  "shortName": "roslyngenerator",
+  "tags": {
+    "language": "C#",
+    "type": "solution"
+  },
+  "description": "Creates a Roslyn Generator solution.",
+  "sourceName": "Roslyn.Generator",
+  "defaultName": "RoslynGenerator",
+  "preferNameDirectory": true,
+  "guids": [
+    "16685FDD-8C16-4D32-808F-B097A5E501FA",
+    "8D826CD8-ADD6-48BE-846E-E48622DDEC21",
+    "8D387D42-181B-4A7C-B994-C51DC6B48E50",
+    "EAEF9E28-6B3D-4DD9-BDB2-0480D23F192F"
+  ],
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "exclude": [
+            ".vs/**",
+            "TestResults/**"
+          ]
+        },
+        {
+          "condition": "Roslyn3_8 || Roslyn3_9",
+          "exclude": [
+            "Roslyn.Generator/HelloWorldGenerator.4.0.cs"
+          ],
+          "rename": {
+            "HelloWorldGenerator.3.11.cs": "HelloWorldGenerator.cs"
+          }
+        },
+        {
+          "condition": "!Roslyn3_8 && !Roslyn3_9",
+          "exclude": [
+            "Roslyn.Generator/HelloWorldGenerator.3.11.cs",
+            "Roslyn.Generator/HelloWorldGenerator.Receiver.cs"
+          ],
+          "rename": {
+            "HelloWorldGenerator.4.0.cs": "HelloWorldGenerator.cs"
+          }
+        }
+      ]
+    }
+  ],
+  "symbols": {
+    "Framework": {
+      "type": "parameter",
+      "description": "The multitarget framework for the projects, containing nullable annotations of the BCL.",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "net6.0",
+          "description": "Multitarget net6.0"
+        }
+      ],
+      "replaces": "net6.0",
+      "defaultValue": "net6.0"
+    },
+    "RoslynVersion": {
+      "type": "parameter",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "3.8",
+          "description": "Roslyn 3.8.0 requires .NET SDK 5.0.100"
+        },
+        {
+          "choice": "3.9",
+          "description": "Roslyn 3.9.0 requires .NET SDK 5.0.200"
+        },
+        {
+          "choice": "4.0",
+          "description": "Roslyn 4.0.1 requires .NET SDK 6.0.100"
+        }
+      ],
+      "defaultValue": "4.0",
+      "description": "The version of Roslyn to use."
+    },
+    "TestingFramework": {
+      "type": "parameter",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "MSTest",
+          "description": "Use MSTest V2"
+        },
+        {
+          "choice": "NUnit",
+          "description": "Use NUnit 3"
+        },
+        {
+          "choice": "xUnit",
+          "description": "Use xUnit.net v2"
+        }
+      ],
+      "defaultValue": "MSTest",
+      "description": "The unit testing framework to use."
+    },
+    "HostIdentifier": {
+      "type": "bind",
+      "binding": "HostIdentifier"
+    },
+    "SkipRestore": {
+      "type": "parameter",
+      "datatype": "bool",
+      "description": "If specified, skips the automatic restore of the project on create.",
+      "defaultValue": "false",
+      "displayName": "Skip restore"
+    },
+    "_RoslynVersionReplacer": {
+      "type": "generated",
+      "generator": "switch",
+      "parameters": {
+        "evaluator": "C++",
+        "datatype": "string",
+        "cases": [
+          {
+            "condition": "(RoslynVersion == '3.8')",
+            "value": "3.8.0"
+          },
+          {
+            "condition": "(RoslynVersion == '3.9')",
+            "value": "3.9.0"
+          },
+          {
+            "condition": "(RoslynVersion == '4.0')",
+            "value": "4.0.1"
+          },
+          {
+            "condition": "(RoslynVersion != null)",
+            "value": "4.0.1"
+          }
+        ]
+      },
+      "replaces": "4.0.1"
+    },
+    "Roslyn3_8": {
+      "type": "computed",
+      "value": "RoslynVersion == 3.8"
+    },
+    "Roslyn3_9": {
+      "type": "computed",
+      "value": "RoslynVersion == 3.9"
+    },
+    "Roslyn4_0": {
+      "type": "computed",
+      "value": "RoslynVersion == 4.0"
+    },
+    "MSTest": {
+      "type": "computed",
+      "value": "TestingFramework == 'MSTest'"
+    },
+    "NUnit": {
+      "type": "computed",
+      "value": "TestingFramework == 'NUnit'"
+    },
+    "xUnit": {
+      "type": "computed",
+      "value": "TestingFramework == 'xUnit'"
+    }
+  },
+  "primaryOutputs": [
+    {
+      "path": "Roslyn.Generator.sln"
+    },
+    {
+      "condition": "(HostIdentifier != \"dotnetcli\" && HostIdentifier != \"dotnetcli-preview\")",
+      "path": "Roslyn.Generator/HelloWorldGenerator.cs"
+    }
+  ],
+  "postActions": [
+    {
+      "id": "restore",
+      "condition": "(!SkipRestore)",
+      "description": "Restore NuGet packages required by this project.",
+      "manualInstructions": [
+        {
+          "text": "Run 'dotnet restore'"
+        }
+      ],
+      "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+      "continueOnError": true
+    },
+    {
+      "id": "open-file",
+      "condition": "(HostIdentifier != \"dotnetcli\" && HostIdentifier != \"dotnetcli-preview\")",
+      "description": "Opens HelloWorldGenerator.cs in the editor",
+      "manualInstructions": [],
+      "actionId": "84C0DA21-51C8-4541-9940-6CA19AF04EE6",
+      "args": {
+        "files": "1"
+      },
+      "continueOnError": true
+    }
+  ],
+  "thirdPartyNotices": "https://github.com/Flash0ver/F0.Templates/blob/main/documentation/solution/Roslyn-Generator.NOTICE.md"
+}

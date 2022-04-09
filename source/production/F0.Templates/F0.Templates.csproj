@@ -34,16 +34,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**" PackagePath="content\" />
+    <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**;templates\**\.vs\**;templates\**\TestResults\**" PackagePath="content\" />
     <Compile Remove="**\*" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(Configuration)' == 'Debug'">
     <None Include="..\..\..\resources\F0.Templates-Preview.png" Pack="true" PackagePath="Icon.png" Visible="false" />
+    <Content Include="..\..\..\resources\F0.Templates-Preview.png" Link="templates\Roslyn-Generator\.template.config\F0.Templates.png" Pack="true" PackagePath="content\Roslyn-Generator\.template.config\F0.Templates.png" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(Configuration)' == 'Release'">
     <None Include="..\..\..\resources\F0.Templates.png" Pack="true" PackagePath="Icon.png" Visible="false" />
+    <Content Include="..\..\..\resources\F0.Templates.png" Link="templates\Roslyn-Generator\.template.config\F0.Templates.png" Pack="true" PackagePath="content\Roslyn-Generator\.template.config\F0.Templates.png" />
   </ItemGroup>
 
 </Project>
