@@ -55,19 +55,13 @@ namespace Roslyn.Generated
 				foreach (MethodDeclarationSyntax methodDeclaration in candidateMethod)
 				{
 #if (Roslyn3_8)
-					if (!HasHelloWorldAttribute(methodDeclaration))
+					if (!DoesReturnString(methodDeclaration, semanticModel, cancellationToken)
+						|| !HasHelloWorldAttribute(methodDeclaration))
 					{
 						continue;
 					}
 
 #endif
-					IMethodSymbol? methodSymbol = semanticModel.GetDeclaredSymbol(methodDeclaration, cancellationToken);
-
-					if (methodSymbol is null)
-					{
-						continue;
-					}
-
 					source.WriteLine($@"{methodDeclaration.Modifiers} string {methodDeclaration.Identifier.ValueText}() => ""Hello, World!"";");
 #if (Roslyn3_8)
 					hasGenerated = true;

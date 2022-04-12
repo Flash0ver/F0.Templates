@@ -38,6 +38,7 @@ namespace Roslyn.Generator
 #else
 				if (context.Node is MethodDeclarationSyntax method
 					&& IsCandidateMethod(method)
+					&& DoesReturnString(method, context.SemanticModel, CancellationToken.None)
 					&& HasHelloWorldAttribute(method, context.SemanticModel, CancellationToken.None))
 #endif
 				{

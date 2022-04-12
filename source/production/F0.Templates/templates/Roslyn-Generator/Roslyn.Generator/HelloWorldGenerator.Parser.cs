@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -17,7 +18,8 @@ namespace Roslyn.Generator
 		{
 			MethodDeclarationSyntax? method = (MethodDeclarationSyntax)context.Node;
 
-			if (HasHelloWorldAttribute(method, context.SemanticModel, cancellationToken))
+			if (DoesReturnString(method, context.SemanticModel, cancellationToken)
+				&& HasHelloWorldAttribute(method, context.SemanticModel, cancellationToken))
 			{
 				return method;
 			}
@@ -31,11 +33,26 @@ namespace Roslyn.Generator
 			return method is
 			{
 				AttributeLists.Count: > 0,
-				ReturnType: PredefinedTypeSyntax predefined,
 				ParameterList.Parameters.Count: 0,
+			} && method.Modifiers.Any(static modifier => modifier.IsKind(SyntaxKind.PartialKeyword));
+		}
+
+		private static bool DoesReturnString(MethodDeclarationSyntax method, SemanticModel semanticModel, CancellationToken cancellationToken)
+		{
+			IMethodSymbol? methodSymbol = semanticModel.GetDeclaredSymbol(method, cancellationToken);
+
+			if (methodSymbol is null)
+			{
+				return false;
 			}
-				&& method.Modifiers.Any(static modifier => modifier.IsKind(SyntaxKind.PartialKeyword))
-				&& predefined.Keyword.IsKind(SyntaxKind.StringKeyword);
+
+#if (Roslyn3_8 || Roslyn3_9)
+			Debug.Assert(methodSymbol.Parameters.IsEmpty);
+#else
+			Debug.Assert(methodSymbol.IsPartialDefinition);
+#endif
+
+			return methodSymbol.ReturnType.SpecialType == SpecialType.System_String;
 		}
 
 #if (Roslyn3_8)
