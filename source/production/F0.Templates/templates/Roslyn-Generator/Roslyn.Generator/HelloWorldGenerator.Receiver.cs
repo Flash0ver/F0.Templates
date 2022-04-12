@@ -1,8 +1,5 @@
 #if (Roslyn3_8 || Roslyn3_9)
 using Microsoft.CodeAnalysis;
-#if (Roslyn3_8)
-using Microsoft.CodeAnalysis.CSharp;
-#endif
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Roslyn.Generator

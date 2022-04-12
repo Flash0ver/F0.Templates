@@ -80,8 +80,8 @@ namespace Roslyn.Generator
 
 			static bool IsHelloWorldAttribute(IdentifierNameSyntax name)
 			{
-				return name.Identifier.ValueText.EndsWith("HelloWorld", StringComparison.InvariantCulture)
-					|| name.Identifier.ValueText.EndsWith("HelloWorldAttribute", StringComparison.InvariantCulture);
+				return name.Identifier.ValueText.EndsWith("HelloWorld", StringComparison.Ordinal)
+					|| name.Identifier.ValueText.EndsWith("HelloWorldAttribute", StringComparison.Ordinal);
 			}
 		}
 #else
@@ -97,7 +97,7 @@ namespace Roslyn.Generator
 					{
 						string fullName = attributeSymbol.ContainingType.ToDisplayString();
 
-						if (fullName.Equals(helloWorldAttribute, StringComparison.InvariantCulture))
+						if (fullName.Equals(helloWorldAttribute, StringComparison.Ordinal))
 						{
 							return true;
 						}

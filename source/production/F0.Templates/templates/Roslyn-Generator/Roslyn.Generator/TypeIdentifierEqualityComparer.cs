@@ -17,7 +17,7 @@ namespace Roslyn.Generator
 				return y is null;
 			}
 
-			return x.Identifier.ValueText.Equals(y?.Identifier.ValueText, StringComparison.InvariantCulture);
+			return x.Identifier.ValueText.Equals(y?.Identifier.ValueText, StringComparison.Ordinal);
 		}
 
 		public int GetHashCode(TypeDeclarationSyntax? obj)
