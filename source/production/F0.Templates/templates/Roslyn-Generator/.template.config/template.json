@@ -56,7 +56,7 @@
   "symbols": {
     "Framework": {
       "type": "parameter",
-      "description": "The multitarget framework for the projects, containing nullable annotations of the BCL.",
+      "description": "The multitarget framework for the generator project, containing nullable annotations of the BCL.",
       "datatype": "choice",
       "choices": [
         {
@@ -73,15 +73,15 @@
       "choices": [
         {
           "choice": "3.8",
-          "description": "Roslyn 3.8.0 requires .NET SDK 5.0.100"
+          "description": "Roslyn 3.8.0 requires .NET SDK 5.0.100 (ISourceGenerator with ISyntaxReceiver)"
         },
         {
           "choice": "3.9",
-          "description": "Roslyn 3.9.0 requires .NET SDK 5.0.200"
+          "description": "Roslyn 3.9.0 requires .NET SDK 5.0.200 (ISourceGenerator with ISyntaxContextReceiver and PostInitialization)"
         },
         {
           "choice": "4.0",
-          "description": "Roslyn 4.0.1 requires .NET SDK 6.0.100"
+          "description": "Roslyn 4.0.1 requires .NET SDK 6.0.100 (IIncrementalGenerator with PostInitialization)"
         }
       ],
       "defaultValue": "4.0",
