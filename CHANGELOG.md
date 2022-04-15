@@ -2,6 +2,7 @@
 CHANGELOG
 
 ## vNext
+- Added `Roslyn Generator` solution template.
 
 ## v0.3.1 (2021-02-02)
 ### Directory.Build.props

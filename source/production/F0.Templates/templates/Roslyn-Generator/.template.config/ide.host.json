@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json.schemastore.org/vs-2017.3.host",
+  "icon": "F0.Templates.png",
+  "tags": [
+    {
+      "type": "projectType",
+      "add": [ "Windows", "Linux", "macOS" ],
+      "remove": []
+    }
+  ],
+  "symbolInfo": [
+    {
+      "id": "RoslynVersion",
+      "name": {
+        "text": "_Roslyn Version",
+        "overrideDefaultText": true
+      },
+      "isVisible": true,
+      "defaultValue": "4.0"
+    },
+    {
+      "id": "TestingFramework",
+      "name": {
+        "text": "_Testing Framework",
+        "overrideDefaultText": true
+      },
+      "isVisible": true,
+      "defaultValue": "MSTest"
+    }
+  ]
+}

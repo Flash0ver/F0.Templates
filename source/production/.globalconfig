@@ -1,0 +1,19 @@
+is_global = true
+
+# IDE0008: Use explicit type
+dotnet_diagnostic.IDE0008.severity = none
+
+# IDE0022: Use block body for methods
+dotnet_diagnostic.IDE0022.severity = none
+
+# IDE0042: Deconstruct variable declaration
+dotnet_diagnostic.IDE0042.severity = none
+
+# IDE0046: Convert to conditional expression
+dotnet_diagnostic.IDE0046.severity = none
+
+# IDE0047: Remove unnecessary parentheses
+dotnet_diagnostic.IDE0047.severity = none
+
+# IDE0090: Use 'new(...)'
+dotnet_diagnostic.IDE0090.severity = none
