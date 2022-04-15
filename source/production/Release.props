@@ -1,8 +1,8 @@
 <Project>
 
   <PropertyGroup>
-    <F0Version>0.3.1</F0Version>
-    <F0ReleaseNotes>The Directory.Build.props item template includes CS0612 in the warnings that are not treated as errors.</F0ReleaseNotes>
+    <F0Version>0.4.0</F0Version>
+    <F0ReleaseNotes>Added Roslyn Generator solution template, producing both source generators and incremental generators.</F0ReleaseNotes>
   </PropertyGroup>
 
 </Project>

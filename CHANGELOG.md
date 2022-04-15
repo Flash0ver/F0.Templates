@@ -2,6 +2,8 @@
 CHANGELOG
 
 ## vNext
+
+## v0.4.0 (2022-04-15)
 - Added `Roslyn Generator` solution template.
 
 ## v0.3.1 (2021-02-02)
