@@ -43,7 +43,7 @@ The unit testing framework to use.
     - Uses [NUnit 3][nunit]
   - `xUnit`
     - Use [xUnit.net v2][xunit]
-- `no-restore`\
+- `--no-restore`\
 Disables implicit restore.
 [dotnet restore][dotnet-restore] explicitly restores the dependencies of the projects.
 
