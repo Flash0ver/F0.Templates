@@ -34,7 +34,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**;templates\**\.vs\**;templates\**\TestResults\**" PackagePath="content\" />
+    <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**;templates\**\TestResults\**;templates\**\.vs\**;templates\**\.idea\**;templates\**\*.DotSettings.user" PackagePath="content\" />
     <Compile Remove="**\*" />
   </ItemGroup>
 
