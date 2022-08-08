@@ -17,9 +17,11 @@
   "defaultName": "RoslynGenerator",
   "preferNameDirectory": true,
   "guids": [
-    "16685FDD-8C16-4D32-808F-B097A5E501FA",
-    "8D826CD8-ADD6-48BE-846E-E48622DDEC21",
-    "8D387D42-181B-4A7C-B994-C51DC6B48E50",
+    "8D729B42-59C9-40B8-830B-E2CE58A2BD90",
+    "DE1705C8-29FB-4E44-A2C3-55EA68861A4E",
+    "F2CCAAB9-854B-476D-B4AF-4112D8DFBED5",
+    "7FA009DE-C74C-42A9-8D29-05C9745FA3E5",
+    "FE931FE8-AFF4-43E4-A0A5-89FFD2BB3C28",
     "EAEF9E28-6B3D-4DD9-BDB2-0480D23F192F"
   ],
   "sources": [
@@ -28,7 +30,10 @@
         {
           "exclude": [
             ".vs/**",
-            "TestResults/**"
+            ".idea/**",
+            "*.DotSettings.user",
+            "TestResults/**",
+            "BenchmarkDotNet.Artifacts/**"
           ]
         },
         {
