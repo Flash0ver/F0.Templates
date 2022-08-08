@@ -3,7 +3,7 @@
 Template: [Roslyn Generator](./Roslyn-Generator.md)
 
 - [BenchmarkDotNet](#benchmarkdotnet)
-- [F0.CodeAnalysis.Benchmarking](#f0.codeanalysis.benchmarking)
+- [F0.CodeAnalysis.Benchmarking](#f0codeanalysisbenchmarking)
 - [Microsoft Test Framework](#microsoft-test-framework)
 - [NUnit](#nunit)
 - [Roslyn](#roslyn)
