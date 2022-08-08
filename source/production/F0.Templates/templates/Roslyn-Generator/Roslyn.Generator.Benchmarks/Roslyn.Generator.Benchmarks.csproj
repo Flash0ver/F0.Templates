@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>net6.0;net472</TargetFrameworks>
+    <LangVersion>default</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BenchmarkDotNet" Version="0.13.1" />
+    <PackageReference Condition="'$(RoslynVersion)' != '3.8' AND '$(RoslynVersion)' != '3.9'" Include="F0.CodeAnalysis.CSharp.IncrementalGenerator.Benchmarking" Version="0.2.0" />
+    <PackageReference Condition="'$(RoslynVersion)' == '3.8' OR '$(RoslynVersion)' == '3.9'" Include="F0.CodeAnalysis.CSharp.SourceGenerator.Benchmarking" Version="0.2.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Roslyn.Generator\Roslyn.Generator.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFrameworkIdentifier)' == '.NETFramework'">
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+
+</Project>

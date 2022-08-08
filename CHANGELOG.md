@@ -2,6 +2,8 @@
 CHANGELOG
 
 ## vNext
+### Roslyn-Generator
+- Added _benchmarking_ and _profiling_ projects.
 
 ## v0.4.0 (2022-04-15)
 - Added `Roslyn Generator` solution template.
