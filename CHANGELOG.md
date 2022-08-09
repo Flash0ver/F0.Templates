@@ -2,6 +2,8 @@
 CHANGELOG
 
 ## vNext
+
+## v0.5.0 (2022-08-09)
 ### Roslyn-Generator
 - Added _benchmarking_ and _profiling_ projects.
 - Fixed Generator for types in the _global namespace_.

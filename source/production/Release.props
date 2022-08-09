@@ -1,8 +1,10 @@
 <Project>
 
   <PropertyGroup>
-    <F0Version>0.4.0</F0Version>
-    <F0ReleaseNotes>Added Roslyn Generator solution template, producing both source generators and incremental generators.</F0ReleaseNotes>
+    <F0Version>0.5.0</F0Version>
+    <F0ReleaseNotes>Roslyn Generator solution template:
+- Added benchmarking and profiling projects
+- Fixed Generator for types in the global namespace</F0ReleaseNotes>
   </PropertyGroup>
 
 </Project>

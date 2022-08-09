@@ -67,7 +67,7 @@ See [Roslyn-Generator.NOTICE.md](./Roslyn-Generator.NOTICE.md).
 
 ## History
 
-- [vNext](../../CHANGELOG.md#vNext)
+- [0.5.0](../../CHANGELOG.md#v050-2022-08-09)
 - [0.4.0](../../CHANGELOG.md#v040-2022-04-15)
 
 [isourcegenerator]: https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.isourcegenerator
