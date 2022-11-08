@@ -2,6 +2,8 @@
 CHANGELOG
 
 ## vNext
+### Roslyn-Generator
+- Changed syntactic check to avoid boxing conversion to interface type.
 
 ## v0.5.0 (2022-08-09)
 ### Roslyn-Generator

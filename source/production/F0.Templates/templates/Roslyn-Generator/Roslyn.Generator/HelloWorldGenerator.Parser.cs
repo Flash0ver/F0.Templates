@@ -34,7 +34,7 @@ namespace Roslyn.Generator
 			{
 				AttributeLists.Count: > 0,
 				ParameterList.Parameters.Count: 0,
-			} && method.Modifiers.Any(static modifier => modifier.IsKind(SyntaxKind.PartialKeyword));
+			} && method.Modifiers.Any(SyntaxKind.PartialKeyword);
 		}
 
 		private static bool DoesReturnString(MethodDeclarationSyntax method, SemanticModel semanticModel, CancellationToken cancellationToken)
