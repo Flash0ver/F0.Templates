@@ -32,9 +32,13 @@ Greater versions of Roslyn (i.e. the _Microsoft.CodeAnalysis[.*]_ packages) requ
     - Produces an [ISourceGenerator][isourcegenerator] with an [ISyntaxContextReceiver][isyntaxcontextreceiver] and registers **PostInitialization**
     - Requires .NET SDK 5.0.200
   - `4.0` (default)
-    - Roslyn 4.0.1
+    - Uses Roslyn 4.0.1
     - Produces an [IIncrementalGenerator][iincrementalgenerator] and registers **PostInitialization**
     - Requires .NET SDK 6.0.100
+  - `4.2`
+    - Uses Roslyn 4.2.0
+    - Produces an [IIncrementalGenerator][iincrementalgenerator] and registers **PostInitialization** (has fixed **MetadataReferencesProvider**)
+    - Requires .NET SDK 6.0.300
 - `-tf|--testing-framework`\
 The unit testing framework to use.
   - `MSTest` (default)

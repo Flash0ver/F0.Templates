@@ -3,6 +3,7 @@ CHANGELOG
 
 ## vNext
 ### Roslyn-Generator
+- Added Roslyn version _4.2.0_ (fixed `MetadataReferencesProvider`).
 - Changed syntactic check to avoid boxing conversion to interface type.
 
 ## v0.5.0 (2022-08-09)

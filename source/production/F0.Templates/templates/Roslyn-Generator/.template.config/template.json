@@ -87,6 +87,10 @@
         {
           "choice": "4.0",
           "description": "Roslyn 4.0.1 requires .NET SDK 6.0.100 (IIncrementalGenerator with PostInitialization)"
+        },
+        {
+          "choice": "4.2",
+          "description": "Roslyn 4.2.0 requires .NET SDK 6.0.300 (IIncrementalGenerator has fixed MetadataReferencesProvider)"
         }
       ],
       "defaultValue": "4.0",
@@ -143,12 +147,16 @@
             "value": "4.0.1"
           },
           {
+            "condition": "(RoslynVersion == '4.2')",
+            "value": "4.2.0"
+          },
+          {
             "condition": "(RoslynVersion != null)",
             "value": "4.0.1"
           }
         ]
       },
-      "replaces": "4.0.1"
+      "replaces": "4.2.0"
     },
     "Roslyn3_8": {
       "type": "computed",
@@ -161,6 +169,10 @@
     "Roslyn4_0": {
       "type": "computed",
       "value": "RoslynVersion == 4.0"
+    },
+    "Roslyn4_2": {
+      "type": "computed",
+      "value": "RoslynVersion == 4.2"
     },
     "MSTest": {
       "type": "computed",
