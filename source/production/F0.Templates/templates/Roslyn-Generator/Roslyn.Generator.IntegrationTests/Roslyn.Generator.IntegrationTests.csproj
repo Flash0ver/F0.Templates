@@ -14,13 +14,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.0.0" />
-    <PackageReference Condition="'$(TestingFramework)' == 'MSTest'" Include="MSTest.TestAdapter" Version="2.2.8" />
-    <PackageReference Condition="'$(TestingFramework)' == 'MSTest'" Include="MSTest.TestFramework" Version="2.2.8" />
-    <PackageReference Condition="'$(TestingFramework)' == 'NUnit'" Include="NUnit" Version="3.13.2" />
-    <PackageReference Condition="'$(TestingFramework)' == 'NUnit'" Include="NUnit3TestAdapter" Version="4.1.0" />
-    <PackageReference Condition="'$(TestingFramework)' != 'MSTest' AND '$(TestingFramework)' != 'NUnit'" Include="xunit" Version="2.4.1" />
-    <PackageReference Condition="'$(TestingFramework)' != 'MSTest' AND '$(TestingFramework)' != 'NUnit'" Include="xunit.runner.visualstudio" Version="2.4.3" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.2" />
+    <PackageReference Condition="'$(TestingFramework)' == 'MSTest'" Include="MSTest.TestAdapter" Version="2.2.10" />
+    <PackageReference Condition="'$(TestingFramework)' == 'MSTest'" Include="MSTest.TestFramework" Version="2.2.10" />
+    <PackageReference Condition="'$(TestingFramework)' == 'NUnit'" Include="NUnit" Version="3.13.3" />
+    <PackageReference Condition="'$(TestingFramework)' == 'NUnit'" Include="NUnit3TestAdapter" Version="4.2.1" />
+    <PackageReference Condition="'$(TestingFramework)' != 'MSTest' AND '$(TestingFramework)' != 'NUnit'" Include="xunit" Version="2.4.2" />
+    <PackageReference Condition="'$(TestingFramework)' != 'MSTest' AND '$(TestingFramework)' != 'NUnit'" Include="xunit.runner.visualstudio" Version="2.4.5" PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup>
