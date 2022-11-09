@@ -88,7 +88,7 @@ namespace Roslyn.Generator
 #else
 		private static bool HasHelloWorldAttribute(MethodDeclarationSyntax method, SemanticModel semanticModel, CancellationToken cancellationToken)
 		{
-			const string helloWorldAttribute = "Roslyn.Generated.HelloWorldAttribute";
+			const string helloWorldAttributeName = "Roslyn.Generated.HelloWorldAttribute";
 
 			foreach (AttributeListSyntax attributeList in method.AttributeLists)
 			{
@@ -98,7 +98,7 @@ namespace Roslyn.Generator
 					{
 						string fullName = attributeSymbol.ContainingType.ToDisplayString();
 
-						if (fullName.Equals(helloWorldAttribute, StringComparison.Ordinal))
+						if (fullName.Equals(helloWorldAttributeName, StringComparison.Ordinal))
 						{
 							return true;
 						}

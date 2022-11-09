@@ -15,12 +15,12 @@ namespace Roslyn.Generator
 	{
 		public void Initialize(IncrementalGeneratorInitializationContext context)
 		{
-			const string helloWorldAttribute = "Roslyn.Generated.HelloWorldAttribute";
+			const string helloWorldAttributeName = "Roslyn.Generated.HelloWorldAttribute";
 
 			context.RegisterPostInitializationOutput(PostInitializationCallback);
 
 			IncrementalValuesProvider<IGrouping<TypeDeclarationSyntax, (MethodDeclarationSyntax node, IMethodSymbol symbol)>> provider = context.SyntaxProvider
-				.ForAttributeWithMetadataName(helloWorldAttribute, SyntaxProviderPredicate, SyntaxProviderTransform)
+				.ForAttributeWithMetadataName(helloWorldAttributeName, SyntaxProviderPredicate, SyntaxProviderTransform)
 				.Where(static method => method != default)
 				.Collect()
 				.SelectMany(static (methods, cancellationToken) => methods.GroupBy(static method => (method.node.Parent as TypeDeclarationSyntax), TypeIdentifierEqualityComparer.Instance))
@@ -31,7 +31,7 @@ namespace Roslyn.Generator
 
 		private static void PostInitializationCallback(IncrementalGeneratorPostInitializationContext context)
 		{
-			context.AddSource("HelloWorldAttribute.g.cs", SourceText.From(HelloWorldAttribute, Encoding.UTF8));
+			context.AddSource("HelloWorldAttribute.g.cs", SourceText.From(helloWorldAttribute, Encoding.UTF8));
 		}
 
 		private static bool SyntaxProviderPredicate(SyntaxNode syntaxNode, CancellationToken cancellationToken)

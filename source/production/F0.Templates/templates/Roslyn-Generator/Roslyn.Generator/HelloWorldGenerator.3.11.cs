@@ -24,7 +24,7 @@ namespace Roslyn.Generator
 		public void Execute(GeneratorExecutionContext context)
 		{
 #if (Roslyn3_8)
-			context.AddSource("HelloWorldAttribute.g.cs", SourceText.From(HelloWorldAttribute, Encoding.UTF8));
+			context.AddSource("HelloWorldAttribute.g.cs", SourceText.From(helloWorldAttribute, Encoding.UTF8));
 
 #endif
 #if (Roslyn3_8)
@@ -47,7 +47,7 @@ namespace Roslyn.Generator
 
 		private static void PostInitializationCallback(GeneratorPostInitializationContext context)
 		{
-			context.AddSource("HelloWorldAttribute.g.cs", SourceText.From(HelloWorldAttribute, Encoding.UTF8));
+			context.AddSource("HelloWorldAttribute.g.cs", SourceText.From(helloWorldAttribute, Encoding.UTF8));
 		}
 #endif
 	}

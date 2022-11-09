@@ -27,7 +27,7 @@ namespace Roslyn.Generator
 
 		private static void PostInitializationCallback(IncrementalGeneratorPostInitializationContext context)
 		{
-			context.AddSource("HelloWorldAttribute.g.cs", SourceText.From(HelloWorldAttribute, Encoding.UTF8));
+			context.AddSource("HelloWorldAttribute.g.cs", SourceText.From(helloWorldAttribute, Encoding.UTF8));
 		}
 
 		private static void SourceOutputAction(SourceProductionContext context, (ImmutableArray<MethodDeclarationSyntax> Left, Compilation Right) candidates)

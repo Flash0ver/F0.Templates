@@ -5,8 +5,9 @@ CHANGELOG
 ### Roslyn-Generator
 - Added Roslyn version _4.2.0_ (fixed `MetadataReferencesProvider`).
 - Added Roslyn version _4.3.1_ (added `ForAttributeWithMetadataName`).
+- Changed generated Attribute to be annotated with the `GeneratedCode` Attribute.
 - Changed syntactic check to avoid boxing conversion to interface type.
-- Update `PackageReference`s.
+- Updated `PackageReference`s.
 
 ## v0.5.0 (2022-08-09)
 ### Roslyn-Generator
