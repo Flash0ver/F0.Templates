@@ -1,3 +1,4 @@
+#if (Roslyn3_8 || Roslyn3_9 || Roslyn4_0 || Roslyn4_2)
 using System.Diagnostics;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
@@ -16,7 +17,7 @@ namespace Roslyn.Generator
 
 		private static MethodDeclarationSyntax? SyntaxProviderTransform(GeneratorSyntaxContext context, CancellationToken cancellationToken)
 		{
-			MethodDeclarationSyntax? method = (MethodDeclarationSyntax)context.Node;
+			var method = (MethodDeclarationSyntax)context.Node;
 
 			if (DoesReturnString(method, context.SemanticModel, cancellationToken)
 				&& HasHelloWorldAttribute(method, context.SemanticModel, cancellationToken))
@@ -110,3 +111,4 @@ namespace Roslyn.Generator
 #endif
 	}
 }
+#endif

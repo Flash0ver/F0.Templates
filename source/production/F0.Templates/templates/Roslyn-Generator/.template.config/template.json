@@ -39,20 +39,35 @@
         {
           "condition": "Roslyn3_8 || Roslyn3_9",
           "exclude": [
-            "Roslyn.Generator/HelloWorldGenerator.4.0.cs"
+            "Roslyn.Generator/HelloWorldGenerator.4.0.cs",
+            "Roslyn.Generator/HelloWorldGenerator.4.3.cs"
           ],
           "rename": {
             "HelloWorldGenerator.3.11.cs": "HelloWorldGenerator.cs"
           }
         },
         {
-          "condition": "!Roslyn3_8 && !Roslyn3_9",
+          "condition": "Roslyn4_0 || Roslyn4_2",
           "exclude": [
             "Roslyn.Generator/HelloWorldGenerator.3.11.cs",
+            "Roslyn.Generator/HelloWorldGenerator.4.3.cs",
             "Roslyn.Generator/HelloWorldGenerator.Receiver.cs"
           ],
           "rename": {
             "HelloWorldGenerator.4.0.cs": "HelloWorldGenerator.cs"
+          }
+        },
+        {
+          "condition": "Roslyn4_3",
+          "exclude": [
+            "Roslyn.Generator/HelloWorldGenerator.3.11.cs",
+            "Roslyn.Generator/HelloWorldGenerator.4.0.cs",
+            "Roslyn.Generator/HelloWorldGenerator.Emitter.cs",
+            "Roslyn.Generator/HelloWorldGenerator.Parser.cs",
+            "Roslyn.Generator/HelloWorldGenerator.Receiver.cs"
+          ],
+          "rename": {
+            "HelloWorldGenerator.4.3.cs": "HelloWorldGenerator.cs"
           }
         }
       ]
@@ -86,11 +101,15 @@
         },
         {
           "choice": "4.0",
-          "description": "Roslyn 4.0.1 requires .NET SDK 6.0.100 (IIncrementalGenerator with PostInitialization)"
+          "description": "Roslyn 4.0.1 requires .NET SDK 6.0.100 (IIncrementalGenerator with SyntaxProvider)"
         },
         {
           "choice": "4.2",
           "description": "Roslyn 4.2.0 requires .NET SDK 6.0.300 (IIncrementalGenerator has fixed MetadataReferencesProvider)"
+        },
+        {
+          "choice": "4.3",
+          "description": "Roslyn 4.3.1 requires .NET SDK 6.0.400 (IIncrementalGenerator with ForAttributeWithMetadataName as SyntaxProvider)"
         }
       ],
       "defaultValue": "4.0",
@@ -151,12 +170,16 @@
             "value": "4.2.0"
           },
           {
+            "condition": "(RoslynVersion == '4.3')",
+            "value": "4.3.1"
+          },
+          {
             "condition": "(RoslynVersion != null)",
             "value": "4.0.1"
           }
         ]
       },
-      "replaces": "4.2.0"
+      "replaces": "4.3.1"
     },
     "Roslyn3_8": {
       "type": "computed",
@@ -173,6 +196,10 @@
     "Roslyn4_2": {
       "type": "computed",
       "value": "RoslynVersion == 4.2"
+    },
+    "Roslyn4_3": {
+      "type": "computed",
+      "value": "RoslynVersion == 4.3"
     },
     "MSTest": {
       "type": "computed",

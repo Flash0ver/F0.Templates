@@ -1,4 +1,4 @@
-#if (!Roslyn3_8 && !Roslyn3_9)
+#if (Roslyn4_0 || Roslyn4_2)
 using System.Collections.Immutable;
 using System.Text;
 using Microsoft.CodeAnalysis;

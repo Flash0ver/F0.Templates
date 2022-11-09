@@ -33,12 +33,16 @@ Greater versions of Roslyn (i.e. the _Microsoft.CodeAnalysis[.*]_ packages) requ
     - Requires .NET SDK 5.0.200
   - `4.0` (default)
     - Uses Roslyn 4.0.1
-    - Produces an [IIncrementalGenerator][iincrementalgenerator] and registers **PostInitialization**
+    - Produces an [IIncrementalGenerator][iincrementalgenerator]
     - Requires .NET SDK 6.0.100
   - `4.2`
     - Uses Roslyn 4.2.0
-    - Produces an [IIncrementalGenerator][iincrementalgenerator] and registers **PostInitialization** (has fixed **MetadataReferencesProvider**)
+    - Produces an [IIncrementalGenerator][iincrementalgenerator] and has fixed **MetadataReferencesProvider**
     - Requires .NET SDK 6.0.300
+  - `4.3`
+    - Uses Roslyn 4.3.1
+    - Produces an [IIncrementalGenerator][iincrementalgenerator] with **ForAttributeWithMetadataName** as [SyntaxProvider][syntaxprovider]
+    - Requires .NET SDK 6.0.400
 - `-tf|--testing-framework`\
 The unit testing framework to use.
   - `MSTest` (default)
@@ -79,6 +83,7 @@ See [Roslyn-Generator.NOTICE.md](./Roslyn-Generator.NOTICE.md).
 [isyntaxreceiver]: https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.isyntaxreceiver
 [isyntaxcontextreceiver]: https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.isyntaxcontextreceiver
 [iincrementalgenerator]: https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.iincrementalgenerator
+[syntaxprovider]: https://docs.microsoft.com/dotnet/api/microsoft.codeanalysis.incrementalgeneratorinitializationcontext.syntaxprovider
 [testfx]: https://github.com/microsoft/testfx
 [nunit]: https://github.com/nunit/nunit
 [xunit]: https://github.com/xunit/xunit

@@ -4,6 +4,7 @@ CHANGELOG
 ## vNext
 ### Roslyn-Generator
 - Added Roslyn version _4.2.0_ (fixed `MetadataReferencesProvider`).
+- Added Roslyn version _4.3.1_ (added `ForAttributeWithMetadataName`).
 - Changed syntactic check to avoid boxing conversion to interface type.
 - Update `PackageReference`s.
 
