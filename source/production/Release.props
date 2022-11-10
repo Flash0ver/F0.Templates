@@ -1,10 +1,13 @@
 <Project>
 
   <PropertyGroup>
-    <F0Version>0.5.0</F0Version>
+    <F0Version>0.6.0</F0Version>
     <F0ReleaseNotes>Roslyn Generator solution template:
-- Added benchmarking and profiling projects
-- Fixed Generator for types in the global namespace</F0ReleaseNotes>
+- Added Roslyn version 4.2.0
+- Added Roslyn version 4.3.1
+- Added use of System.CodeDom.Compiler.GeneratedCodeAttribute
+- Fixed a boxing conversion to an interface type
+- Updated dependencies</F0ReleaseNotes>
   </PropertyGroup>
 
 </Project>

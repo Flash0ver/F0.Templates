@@ -2,6 +2,8 @@
 CHANGELOG
 
 ## vNext
+
+## v0.6.0 (2022-11-10)
 ### Roslyn-Generator
 - Added Roslyn version _4.2.0_ (fixed `MetadataReferencesProvider`).
 - Added Roslyn version _4.3.1_ (added `ForAttributeWithMetadataName`).
