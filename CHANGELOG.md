@@ -2,6 +2,8 @@
 CHANGELOG
 
 ## vNext
+### Roslyn-Generator
+- Fixed Benchmarks by expecting the `GeneratedCode` Attribute.
 
 ## v0.6.0 (2022-11-10)
 ### Roslyn-Generator

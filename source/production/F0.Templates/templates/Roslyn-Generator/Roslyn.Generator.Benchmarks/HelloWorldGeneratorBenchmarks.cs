@@ -51,6 +51,7 @@ namespace Benchmarks
 
 namespace Roslyn.Generated
 {
+	[global::System.CodeDom.Compiler.GeneratedCodeAttribute(""Roslyn.Generator"", ""1.0.0.0"")]
 	[global::System.AttributeUsage(global::System.AttributeTargets.Method, AllowMultiple = false)]
 	internal sealed class HelloWorldAttribute : global::System.Attribute
 	{
