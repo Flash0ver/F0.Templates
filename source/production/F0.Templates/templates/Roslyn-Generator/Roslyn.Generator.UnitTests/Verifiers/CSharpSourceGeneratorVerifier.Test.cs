@@ -55,7 +55,8 @@ namespace Roslyn.Generator.UnitTests.Verifiers
 
 			protected override ParseOptions CreateParseOptions()
 			{
-				return ((CSharpParseOptions)base.CreateParseOptions()).WithLanguageVersion(LanguageVersion);
+				var parseOptions = (CSharpParseOptions)base.CreateParseOptions();
+				return parseOptions.WithLanguageVersion(LanguageVersion);
 			}
 		}
 	}

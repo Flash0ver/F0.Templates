@@ -88,7 +88,7 @@ namespace Roslyn.Generator
 
 		private static IEnumerable<IGrouping<TypeDeclarationSyntax, MethodDeclarationSyntax>> GroupByContainingType(IReadOnlyList<MethodDeclarationSyntax> methods)
 		{
-			return methods.GroupBy(static method => (method.Parent as TypeDeclarationSyntax), TypeIdentifierEqualityComparer.Instance)
+			return methods.GroupBy(static method => method.Parent as TypeDeclarationSyntax, TypeIdentifierEqualityComparer.Instance)
 				.Where(static grouping => grouping.Key is not null)!;
 		}
 	}

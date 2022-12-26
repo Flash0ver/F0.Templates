@@ -14,15 +14,13 @@ namespace Roslyn.Generator
 		{
 			context.RegisterPostInitializationOutput(PostInitializationCallback);
 
-			IncrementalValueProvider<ImmutableArray<MethodDeclarationSyntax>> syntaxProvider = context.SyntaxProvider
+			IncrementalValueProvider<(ImmutableArray<MethodDeclarationSyntax> Left, Compilation Right)> provider = context.SyntaxProvider
 				.CreateSyntaxProvider(SyntaxProviderPredicate, SyntaxProviderTransform)
 				.Where(static method => method is not null)
-				.Collect()!;
+				.Collect()
+				.Combine(context.CompilationProvider)!;
 
-			IncrementalValueProvider<(ImmutableArray<MethodDeclarationSyntax> Left, Compilation Right)> source = syntaxProvider
-				.Combine(context.CompilationProvider);
-
-			context.RegisterSourceOutput(source, SourceOutputAction);
+			context.RegisterSourceOutput(provider, SourceOutputAction);
 		}
 
 		private static void PostInitializationCallback(IncrementalGeneratorPostInitializationContext context)

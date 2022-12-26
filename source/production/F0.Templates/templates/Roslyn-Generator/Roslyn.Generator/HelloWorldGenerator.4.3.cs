@@ -23,7 +23,7 @@ namespace Roslyn.Generator
 				.ForAttributeWithMetadataName(helloWorldAttributeName, SyntaxProviderPredicate, SyntaxProviderTransform)
 				.Where(static method => method != default)
 				.Collect()
-				.SelectMany(static (methods, cancellationToken) => methods.GroupBy(static method => (method.node.Parent as TypeDeclarationSyntax), TypeIdentifierEqualityComparer.Instance))
+				.SelectMany(static (methods, cancellationToken) => methods.GroupBy(static method => method.node.Parent as TypeDeclarationSyntax, TypeIdentifierEqualityComparer.Instance))
 				.Where(static grouping => grouping.Key is not null)!;
 
 			context.RegisterSourceOutput(provider, SourceOutputAction);
@@ -36,11 +36,11 @@ namespace Roslyn.Generator
 
 		private static bool SyntaxProviderPredicate(SyntaxNode syntaxNode, CancellationToken cancellationToken)
 		{
-			return syntaxNode is MethodDeclarationSyntax method
-				&& method is
+			return syntaxNode is MethodDeclarationSyntax
 				{
 					ParameterList.Parameters.Count: 0,
-				} && method.Modifiers.Any(SyntaxKind.PartialKeyword);
+				} method
+				&& method.Modifiers.Any(SyntaxKind.PartialKeyword);
 		}
 
 		private static (MethodDeclarationSyntax node, IMethodSymbol symbol) SyntaxProviderTransform(GeneratorAttributeSyntaxContext context, CancellationToken cancellationToken)
