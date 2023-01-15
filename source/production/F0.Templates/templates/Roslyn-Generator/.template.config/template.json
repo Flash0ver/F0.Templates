@@ -39,35 +39,35 @@
         {
           "condition": "Roslyn3_8 || Roslyn3_9",
           "exclude": [
-            "Roslyn.Generator/HelloWorldGenerator.4.0.cs",
-            "Roslyn.Generator/HelloWorldGenerator.4.3.cs"
+            "Roslyn.Generator/HelloWorldGenerator.Roslyn4_0.cs",
+            "Roslyn.Generator/HelloWorldGenerator.Roslyn4_3.cs"
           ],
           "rename": {
-            "HelloWorldGenerator.3.11.cs": "HelloWorldGenerator.cs"
+            "HelloWorldGenerator.Roslyn3_8.cs": "HelloWorldGenerator.cs"
           }
         },
         {
           "condition": "Roslyn4_0 || Roslyn4_2",
           "exclude": [
-            "Roslyn.Generator/HelloWorldGenerator.3.11.cs",
-            "Roslyn.Generator/HelloWorldGenerator.4.3.cs",
+            "Roslyn.Generator/HelloWorldGenerator.Roslyn3_8.cs",
+            "Roslyn.Generator/HelloWorldGenerator.Roslyn4_3.cs",
             "Roslyn.Generator/HelloWorldGenerator.Receiver.cs"
           ],
           "rename": {
-            "HelloWorldGenerator.4.0.cs": "HelloWorldGenerator.cs"
+            "HelloWorldGenerator.Roslyn4_0.cs": "HelloWorldGenerator.cs"
           }
         },
         {
           "condition": "Roslyn4_3",
           "exclude": [
-            "Roslyn.Generator/HelloWorldGenerator.3.11.cs",
-            "Roslyn.Generator/HelloWorldGenerator.4.0.cs",
+            "Roslyn.Generator/HelloWorldGenerator.Roslyn3_8.cs",
+            "Roslyn.Generator/HelloWorldGenerator.Roslyn4_0.cs",
             "Roslyn.Generator/HelloWorldGenerator.Emitter.cs",
             "Roslyn.Generator/HelloWorldGenerator.Parser.cs",
             "Roslyn.Generator/HelloWorldGenerator.Receiver.cs"
           ],
           "rename": {
-            "HelloWorldGenerator.4.3.cs": "HelloWorldGenerator.cs"
+            "HelloWorldGenerator.Roslyn4_3.cs": "HelloWorldGenerator.cs"
           }
         }
       ]
