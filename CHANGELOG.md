@@ -5,6 +5,7 @@ CHANGELOG
 ### Roslyn-Generator
 - Changed Roslyn versions _3.8.0_ through _4.2.0_ to no longer have _HelloWorldGenerator.Emitter.cs_ nor _HelloWorldGenerator.Parser.cs_.
 - Changed tests to include non-_readonly_ and _readonly_ _value types_.
+- Changed _NUnit_ testing framework to also include package `NUnit.Analyzers`.
 - Fixed Benchmarks by expecting the `GeneratedCode` Attribute.
 - Fixed generation for recurring type names in different namespaces.
 - Fixed generation for _record types_.
