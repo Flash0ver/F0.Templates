@@ -78,7 +78,7 @@ namespace Benchmarks
 #endif
 			{
 				Source = ("HelloWorldAttribute.g.cs", attribute),
-				AdditionalSources = { ("Greeter.HelloWorld.g.cs", generated) },
+				AdditionalSources = { ("Benchmarks.Greeter.HelloWorld.g.cs", generated) },
 			});
 		}
 	}

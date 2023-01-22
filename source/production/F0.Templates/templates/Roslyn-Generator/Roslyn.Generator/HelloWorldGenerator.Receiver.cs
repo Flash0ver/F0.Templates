@@ -1,5 +1,4 @@
 #if (Roslyn3_8 || Roslyn3_9)
-using System.Diagnostics;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -23,7 +22,11 @@ namespace Roslyn.Generator
 				return new HelloWorldReceiver();
 			}
 
+#if (Roslyn3_8)
 			internal List<MethodDeclarationSyntax>? CandidateMethods { get; private set; }
+#else
+			internal List<(MethodDeclarationSyntax node, IMethodSymbol symbol)>? CandidateMethods { get; private set; }
+#endif
 
 #if (Roslyn3_8)
 			public void OnVisitSyntaxNode(SyntaxNode syntaxNode)
@@ -34,16 +37,25 @@ namespace Roslyn.Generator
 #if (Roslyn3_8)
 				if (syntaxNode is MethodDeclarationSyntax method
 					&& IsCandidateMethod(method))
-#else
-				if (context.Node is MethodDeclarationSyntax method
-					&& IsCandidateMethod(method)
-					&& DoesReturnString(method, context.SemanticModel, CancellationToken.None)
-					&& HasHelloWorldAttribute(method, context.SemanticModel, CancellationToken.None))
-#endif
 				{
 					CandidateMethods ??= new List<MethodDeclarationSyntax>();
 					CandidateMethods.Add(method);
 				}
+#else
+				if (context.Node is MethodDeclarationSyntax method
+					&& IsCandidateMethod(method))
+				{
+					IMethodSymbol? methodSymbol = context.SemanticModel.GetDeclaredSymbol(method, CancellationToken.None);
+
+					if (methodSymbol is not null
+						&& methodSymbol.ReturnType.SpecialType == SpecialType.System_String
+						&& HasHelloWorldAttribute(method, context.SemanticModel, CancellationToken.None))
+					{
+						CandidateMethods ??= new List<(MethodDeclarationSyntax node, IMethodSymbol symbol)>();
+						CandidateMethods.Add((method, methodSymbol));
+					}
+				}
+#endif
 			}
 
 			private static bool IsCandidateMethod(MethodDeclarationSyntax method)
@@ -55,24 +67,6 @@ namespace Roslyn.Generator
 					}
 					&& method.Modifiers.Any(SyntaxKind.PartialKeyword);
 			}
-		}
-
-		private static bool DoesReturnString(MethodDeclarationSyntax method, SemanticModel semanticModel, CancellationToken cancellationToken)
-		{
-			IMethodSymbol? methodSymbol = semanticModel.GetDeclaredSymbol(method, cancellationToken);
-
-			if (methodSymbol is null)
-			{
-				return false;
-			}
-
-#if (Roslyn3_8 || Roslyn3_9)
-			Debug.Assert(methodSymbol.Parameters.IsEmpty);
-#else
-			Debug.Assert(methodSymbol.IsPartialDefinition);
-#endif
-
-			return methodSymbol.ReturnType.SpecialType == SpecialType.System_String;
 		}
 
 #if (Roslyn3_8)

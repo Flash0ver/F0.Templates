@@ -17,12 +17,11 @@ namespace Roslyn.Generator
 		{
 			context.RegisterPostInitializationOutput(PostInitializationCallback);
 
-			IncrementalValuesProvider<IGrouping<TypeDeclarationSyntax, (MethodDeclarationSyntax node, IMethodSymbol symbol)>> provider = context.SyntaxProvider
+			IncrementalValuesProvider<IGrouping<ISymbol, (MethodDeclarationSyntax node, IMethodSymbol symbol)>> provider = context.SyntaxProvider
 				.CreateSyntaxProvider(SyntaxProviderPredicate, SyntaxProviderTransform)
 				.Where(static method => method is not null)
 				.Collect()
-				.SelectMany(static (methods, cancellationToken) => methods.GroupBy(static method => method!.Value.node.Parent as TypeDeclarationSyntax, static method => method!.Value, TypeIdentifierEqualityComparer.Instance))
-				.Where(static grouping => grouping.Key is not null)!;
+				.SelectMany(static (methods, cancellationToken) => methods.GroupBy(static method => method!.Value.symbol.ContainingType, static method => method!.Value, SymbolEqualityComparer.Default))!;
 
 			context.RegisterSourceOutput(provider, SourceOutputAction);
 		}
@@ -81,11 +80,13 @@ namespace Roslyn.Generator
 			return false;
 		}
 
-		private static void SourceOutputAction(SourceProductionContext context, IGrouping<TypeDeclarationSyntax, (MethodDeclarationSyntax node, IMethodSymbol symbol)> candidates)
+		private static void SourceOutputAction(SourceProductionContext context, IGrouping<ISymbol, (MethodDeclarationSyntax node, IMethodSymbol symbol)> candidates)
 		{
 			Debug.Assert(candidates.Any());
 
-			INamedTypeSymbol typeSymbol = candidates.First().symbol.ContainingType;
+			(MethodDeclarationSyntax node, IMethodSymbol symbol) candidate = candidates.First();
+			var typeDeclaration = (TypeDeclarationSyntax)candidate.node.Parent!;
+			INamedTypeSymbol typeSymbol = candidate.symbol.ContainingType;
 
 			StringBuilder builder = new();
 			using StringWriter writer = new(builder, CultureInfo.InvariantCulture);
@@ -102,13 +103,13 @@ namespace Roslyn.Generator
 				source.Indent++;
 			}
 
-			source.WriteLine($"partial {candidates.Key.Keyword} {candidates.Key.Identifier.ValueText}");
+			source.WriteLine($"partial {typeDeclaration.Keyword} {typeDeclaration.Identifier.ValueText}");
 			source.WriteLine("{");
 			source.Indent++;
 
-			foreach ((MethodDeclarationSyntax node, IMethodSymbol symbol) candidate in candidates)
+			foreach ((MethodDeclarationSyntax node, IMethodSymbol symbol) method in candidates)
 			{
-				source.WriteLine($@"{candidate.node.Modifiers} string {candidate.node.Identifier.ValueText}() => ""Hello, World!"";");
+				source.WriteLine($@"{method.node.Modifiers} string {method.node.Identifier.ValueText}() => ""Hello, World!"";");
 			}
 
 			source.Indent--;
@@ -122,7 +123,10 @@ namespace Roslyn.Generator
 
 			Debug.Assert(source.Indent == 0);
 
-			context.AddSource($"{candidates.Key.Identifier.ValueText}.HelloWorld.g.cs", writer.ToString());
+			string hintName = typeSymbol.ContainingNamespace.IsGlobalNamespace
+				? $"{typeDeclaration.Identifier.ValueText}.HelloWorld.g.cs"
+				: $"{typeSymbol.ContainingNamespace}.{typeDeclaration.Identifier.ValueText}.HelloWorld.g.cs";
+			context.AddSource(hintName, writer.ToString());
 		}
 	}
 }
