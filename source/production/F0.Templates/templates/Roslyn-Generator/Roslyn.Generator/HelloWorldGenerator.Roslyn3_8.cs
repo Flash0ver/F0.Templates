@@ -4,7 +4,9 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Text;
 using Microsoft.CodeAnalysis;
+#if (Roslyn3_8)
 using Microsoft.CodeAnalysis.CSharp;
+#endif
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Text;
 

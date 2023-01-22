@@ -12,7 +12,7 @@ namespace Roslyn.Generator.UnitTests.Verifiers
 		where TSourceGenerator : IIncrementalGenerator, new()
 #endif
 	{
-		internal static readonly (string filename, string content)[] EmptyGeneratedSources = Array.Empty<(string filename, string content)>();
+		internal static (string filename, string content)[] EmptyGeneratedSources { get; } = Array.Empty<(string filename, string content)>();
 
 		public static DiagnosticResult Diagnostic()
 			=> new DiagnosticResult();
