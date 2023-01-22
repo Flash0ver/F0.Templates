@@ -64,6 +64,7 @@ namespace Roslyn.Generator
 					{
 						AttributeLists.Count: > 0,
 						ParameterList.Parameters.Count: 0,
+						Parent: TypeDeclarationSyntax,
 					}
 					&& method.Modifiers.Any(SyntaxKind.PartialKeyword);
 			}

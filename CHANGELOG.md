@@ -4,9 +4,10 @@ CHANGELOG
 ## vNext
 ### Roslyn-Generator
 - Changed Roslyn versions _3.8.0_ through _4.2.0_ to no longer have _HelloWorldGenerator.Emitter.cs_ nor _HelloWorldGenerator.Parser.cs_.
-- Changed tests to include non-_readonly_ and _readonly_ value types.
+- Changed tests to include non-_readonly_ and _readonly_ _value types_.
 - Fixed Benchmarks by expecting the `GeneratedCode` Attribute.
 - Fixed generation for recurring type names in different namespaces.
+- Fixed generation for _record types_.
 
 ## v0.6.0 (2022-11-10)
 ### Roslyn-Generator

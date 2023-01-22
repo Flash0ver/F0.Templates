@@ -37,6 +37,7 @@ namespace Roslyn.Generator
 				{
 					AttributeLists.Count: > 0,
 					ParameterList.Parameters.Count: 0,
+					Parent: TypeDeclarationSyntax,
 				} method
 				&& method.Modifiers.Any(SyntaxKind.PartialKeyword);
 		}
@@ -103,7 +104,8 @@ namespace Roslyn.Generator
 				source.Indent++;
 			}
 
-			source.WriteLine($"partial {typeDeclaration.Keyword} {typeDeclaration.Identifier.ValueText}");
+			string record = typeSymbol.IsRecord && typeSymbol.IsValueType ? " struct" : String.Empty;
+			source.WriteLine($"partial {typeDeclaration.Keyword}{record} {typeDeclaration.Identifier.ValueText}");
 			source.WriteLine("{");
 			source.Indent++;
 
