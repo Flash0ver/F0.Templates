@@ -62,8 +62,6 @@
           "exclude": [
             "Roslyn.Generator/HelloWorldGenerator.Roslyn3_8.cs",
             "Roslyn.Generator/HelloWorldGenerator.Roslyn4_0.cs",
-            "Roslyn.Generator/HelloWorldGenerator.Emitter.cs",
-            "Roslyn.Generator/HelloWorldGenerator.Parser.cs",
             "Roslyn.Generator/HelloWorldGenerator.Receiver.cs"
           ],
           "rename": {

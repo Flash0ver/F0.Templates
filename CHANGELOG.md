@@ -3,6 +3,7 @@ CHANGELOG
 
 ## vNext
 ### Roslyn-Generator
+- Changed Roslyn versions _3.8.0_ through _4.2.0_ to no longer have _HelloWorldGenerator.Emitter.cs_ nor _HelloWorldGenerator.Parser.cs_.
 - Fixed Benchmarks by expecting the `GeneratedCode` Attribute.
 
 ## v0.6.0 (2022-11-10)

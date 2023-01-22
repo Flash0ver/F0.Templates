@@ -49,7 +49,6 @@ namespace Roslyn.Generator
 			var methodSymbol = (IMethodSymbol)context.TargetSymbol;
 
 			Debug.Assert(method.AttributeLists.Count > 0);
-			Debug.Assert(methodSymbol.IsPartialDefinition);
 
 			if (methodSymbol.ReturnType.SpecialType == SpecialType.System_String)
 			{
@@ -61,6 +60,8 @@ namespace Roslyn.Generator
 
 		private static void SourceOutputAction(SourceProductionContext context, IGrouping<TypeDeclarationSyntax, (MethodDeclarationSyntax node, IMethodSymbol symbol)> candidates)
 		{
+			Debug.Assert(candidates.Any());
+
 			INamedTypeSymbol typeSymbol = candidates.First().symbol.ContainingType;
 
 			StringBuilder builder = new();
